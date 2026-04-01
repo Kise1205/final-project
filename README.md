@@ -102,10 +102,11 @@ This project includes a role-based admin dashboard, enabling administrators to m
 ---
 
 ## ✅ Repo Setup Checklist
-- [ ] Instructor added as collaborator.
-- [ ] README.md updated with this proposal.
+- [x] Instructor added as collaborator.
+- [x] Group member added as collaborator.
+- [x] README.md updated with this proposal.
 - [ ] GitHub Project board populated with backlog issues.
-- [ ] Milestones configured in GitHub.
+- [x] Milestones configured in GitHub.
 
 ---
 
