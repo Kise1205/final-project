@@ -5,6 +5,10 @@
 
 This project includes a role-based admin dashboard, enabling administrators to manage users and system data efficiently. The application is designed with a clean architecture, modern UI, and cloud deployment to demonstrate professional full-stack development skills.
 
+### 👥 Team Members
+* **Nhu Tran** 
+* **Thuan Nguyen** 
+
 ### 🎯 Target Users
 * 👤 **Regular Users:** Students, gym-goers, and individuals tracking daily nutrition and calorie intake.
 * 👑 **Admin Users:** System administrators managing user data and overseeing application content.
