@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Calorie Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Calorie Dashboard</a>
+            <button class="btn btn-outline-light btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card bg-primary text-white p-3 text-center shadow">
+                    <h5>Total Calories</h5>
+                    <h2 id="totalCals">0</h2> 
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card p-3 shadow-sm border-0">
+                    <h4 class="mb-3">Add Meal</h4>
+                    <form id="foodForm">
+                        <div class="mb-2">
+                            <input type="text" id="foodName" class="form-control" placeholder="Food Name (e.g., Apple)" required>
+                        </div>
+                        <div class="mb-2">
+                            <input type="number" id="calories" class="form-control" placeholder="Calories (e.g., 95)" required min="1">
+                        </div>
+                        <div class="mb-3">
+                            <select id="category" class="form-select" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snack">Snack</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Save Entry</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <input type="text" id="searchInput" class="form-control mb-3" placeholder="Search foods by name...">
+                
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Name</th>
+                                <th>Calories</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="foodTableBody">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">Edit Meal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <input type="hidden" id="editId">
+                        <div class="mb-2">
+                            <label>Food Name</label>
+                            <input type="text" id="editName" class="form-control" required>
+                        </div>
+                        <div class="mb-2">
+                            <label>Calories</label>
+                            <input type="number" id="editCalories" class="form-control" required min="1">
+                        </div>
+                        <div class="mb-3">
+                            <label>Category</label>
+                            <select id="editCategory" class="form-select" required>
+                                <option value="Breakfast">Breakfast</option>
+                                <option value="Lunch">Lunch</option>
+                                <option value="Dinner">Dinner</option>
+                                <option value="Snack">Snack</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./scripts/calorie-crud.js?v=2"></script>
+</body>
+</html>

@@ -3,13 +3,10 @@
 ## 📖 Project Overview
 **Calorie Tracker** is a full-stack web application that allows users to log daily food intake, track calorie consumption, and monitor their health progress. 
 
-This project includes a role-based admin dashboard, enabling administrators to manage users and system data efficiently. The application is designed with a clean architecture, modern UI, and cloud deployment to demonstrate professional full-stack development skills.
+This project includes a role-based admin dashboard, enabling administrators to manage users and system data efficiently. The application is designed with a clean monolithic architecture, modern UI, and cloud deployment to demonstrate professional full-stack development skills.
 
 ### 👥 Team Members
-* **Nhu Tran** 
-* **Thuan Nguyen** 
-
-### 🎯 Target Users
+* **Nhu Tran** * **Thuan Nguyen** ### 🎯 Target Users
 * 👤 **Regular Users:** Students, gym-goers, and individuals tracking daily nutrition and calorie intake.
 * 👑 **Admin Users:** System administrators managing user data and overseeing application content.
 
@@ -44,30 +41,28 @@ This project includes a role-based admin dashboard, enabling administrators to m
 * Dynamic filtering by **Date** and **Category** (Breakfast, Lunch, Dinner).
 
 ### 🎨 5. UI / UX Design (10 pts)
-* Responsive layout using **Bootstrap**.
+* Responsive layout using **Bootstrap 5**.
 * Clean navigation, visual calorie cards, and validated forms.
 
 ### 🐞 6. Debug Case Study (10 pts)
 * **Issue:** Food entries not displaying after login.
 * **Cause:** JWT token not included in API request headers.
-* **Fix:** Updated frontend to send the Bearer token in headers and verified via backend middleware.
+* **Fix:** Updated frontend to send the Bearer token in headers via Axios interceptors, and verified via backend middleware.
 
 ### 📊 7. Monitoring / Logging (10 pts)
-* Server logging using middleware (Morgan/Custom).
-* Global error handling to return structured JSON error responses.
+* Server logging using custom middleware.
+* Global error handling to catch unhandled promise rejections and return structured JSON error responses.
 
 ---
 
 ## 🛠 Tech Stack
-* **Frontend:** React.js
+* **Frontend:** Vanilla JavaScript, HTML5, CSS3, Bootstrap 5 (Monolithic Architecture)
 * **Backend:** Node.js + Express
 * **Database:** MongoDB Atlas
 * **Cloud:** Google Cloud VM (Compute Engine)
 * **Web Server:** Nginx (Reverse Proxy)
 * **Process Manager:** PM2
-* **Security:** JWT (JSON Web Tokens)
-
----
+* **Security:** JWT (JSON Web Tokens), bcryptjs
 
 ---
 
