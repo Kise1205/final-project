@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-danger shadow-sm">
+        <div class="container">
+            <span class="navbar-brand fw-bold">Admin Control Panel</span>
+            <button class="btn btn-light btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-dark text-white">Registered Users</div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped mb-0">
+                            <thead><tr><th>Email</th><th>Role</th></tr></thead>
+                            <tbody id="usersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-header bg-dark text-white">All Application Data (Global)</div>
+                    <div class="card-body p-0">
+                        <table class="table table-hover mb-0">
+                            <thead><tr><th>User Email</th><th>Food</th><th>Cals</th><th>Date</th><th>Action</th></tr></thead>
+                            <tbody id="adminFoodTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const token = localStorage.getItem('token');
+        const role = localStorage.getItem('role');
+
+        if (!token || role !== 'admin') {
+            alert('Access Denied. Admins only.');
+            window.location.href = 'auth.html';
+        }
+
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+        async function loadAdminData() {
+            try {
+                // Fetch Users
+                const userRes = await axios.get('/api/admin/users');
+                const usersHtml = userRes.data.map(u => `<tr><td>${u.email}</td><td><span class="badge ${u.role === 'admin' ? 'bg-danger' : 'bg-primary'}">${u.role}</span></td></tr>`).join('');
+                document.getElementById('usersTableBody').innerHTML = usersHtml;
+
+                // Fetch All Foods
+                const foodRes = await axios.get('/api/admin/foods');
+                const foodsHtml = foodRes.data.map(f => `
+                    <tr>
+                        <td><small>${f.userId?.email || 'Deleted User'}</small></td>
+                        <td>${f.name}</td>
+                        <td>${f.calories}</td>
+                        <td>${new Date(f.date).toLocaleDateString()}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="adminDeleteFood('${f._id}')">Delete</button>
+                        </td>
+                    </tr>
+                `).join('');
+                document.getElementById('adminFoodTableBody').innerHTML = foodsHtml;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // Admin-specific delete function
+        async function adminDeleteFood(id) {
+            if (!confirm('ADMIN ACTION: Permanently delete this user record?')) return;
+            try {
+                await axios.delete(`/api/admin/foods/${id}`);
+                loadAdminData(); // Refresh the table
+            } catch (err) {
+                alert('Failed to delete record.');
+            }
+        }
+
+        function logout() {
+            localStorage.clear();
+            window.location.href = 'auth.html';
+        }
+
+        loadAdminData();
+    </script>
+</body>
+</html>

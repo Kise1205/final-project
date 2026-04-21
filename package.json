@@ -1,0 +1,34 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "**Calorie Tracker** is a full-stack web application that allows users to log daily food intake, track calorie consumption, and monitor their health progress.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.mjs",
+    "dev": "nodemon app.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kise1205/final-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kise1205/final-project/issues"
+  },
+  "homepage": "https://github.com/Kise1205/final-project#readme",
+  "dependencies": {
+    "axios": "^1.15.1",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
