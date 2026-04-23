@@ -22,7 +22,7 @@ jobs:
           script: |
             set -e
 
-            DEPLOY_DIR="/home/student/final-project"   
+            DEPLOY_DIR="/home/quynhnhutran987/final-project"   
 
             echo "🚀 Deploying Calorie Tracker to $DEPLOY_DIR ..."
 
