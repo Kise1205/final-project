@@ -9,7 +9,7 @@ This project includes a role-based admin dashboard, enabling administrators to m
 * **Nhu Tran** * **Thuan Nguyen**
 
 ### 🎯 Target Users
-* 👤 **Regular Users:** Students, gym-goers, and individuals tracking daily nutrition and calorie intake.
+* 👤 **Regular Users:** Students, gym-goers, and individuals tracking calorie intake.
 * 👑 **Admin Users:** System administrators managing user data and overseeing application content.
 
 ### 🚀 Core Features (Base App)
@@ -50,7 +50,7 @@ These would make our Calorie Tracker more complete and professional for real use
 
 ---
 ## 🛠 Tech Stack
-* **Frontend:** Vanilla JavaScript, HTML5, CSS3, Bootstrap 5 (Monolithic Architecture)
+* **Frontend:** JavaScript, HTML5, CSS3, Bootstrap 5
 * **Backend:** Node.js + Express
 * **Database:** MongoDB Atlas
 * **Cloud:** Google Cloud VM (Compute Engine)
@@ -121,7 +121,7 @@ The VM instance has been configured for remote access using the `student-key` as
 
 ### **GCP & Networking**
 * Create Compute Engine VM.
-* Open Firewall ports: `80` (HTTP), `443` (HTTPS), and `3000` (API testing).
+* Open Firewall ports: `80` (HTTP) and `5000` (API testing).
 
 ### **Production Environment**
 * **PM2:** Ensures the Node.js API restarts automatically on crashes or server reboots.
