@@ -33,6 +33,20 @@ This project includes a role-based admin dashboard, enabling administrators to m
 
 ---
 
+## 🚀 Sprint 99 (Future Work)
+
+**Milestone:** [Sprint 99](https://github.com/Kise1205/final-project/milestone/6)
+
+### What we would build next:
+- **New Features:** Interactive calorie charts, daily reminders
+- **Improvements:** Better validation, rate limiting, dark mode
+- **Known Limitations:** Admin edit user info, password reset
+
+**Why these?**  
+These would make our Calorie Tracker more complete and professional for real users.
+
+
+---
 ## 🛠 Tech Stack
 * **Frontend:** Vanilla JavaScript, HTML5, CSS3, Bootstrap 5 (Monolithic Architecture)
 * **Backend:** Node.js + Express
