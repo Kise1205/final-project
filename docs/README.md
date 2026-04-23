@@ -28,10 +28,17 @@ This project includes a role-based admin dashboard, enabling administrators to m
 | **🔐 1. Authentication + Roles** | Built secure JWT registration, login, and role-based access (user/admin) with protected routes using custom middleware. | [Issue #1](https://github.com/Kise1205/final-project/issues/1)<br>[Issue #2](https://github.com/Kise1205/final-project/issues/2)<br>[Issue #3](https://github.com/Kise1205/final-project/issues/3)<br>[Issue #7](https://github.com/Kise1205/final-project/issues/7) | Learned to correctly split "Bearer " from the token string before verifying. |
 | **🛠 2. Admin Panel**            | Created admin dashboard to view all users and manage (delete) any food entry in the system. | [Issue #8](https://github.com/Kise1205/final-project/issues/8)<br>[Issue #9](https://github.com/Kise1205/final-project/issues/9) | Only users with role = "admin" can access. Normal users are blocked by `isAdmin` middleware. |
 | **🗄 3. Database Design**        | Used MongoDB Atlas + Mongoose with User and FoodEntry schemas (One-to-Many relationship). | [Schemas in app.mjs](https://github.com/Kise1205/final-project/blob/dev3/app.mjs#L45-L75)<br>[Issue #4](https://github.com/Kise1205/final-project/issues/4)<br>[Issue #5](https://github.com/Kise1205/final-project/issues/5)<br>[Issue #6](https://github.com/Kise1205/final-project/issues/6) | Clean design supports daily calorie tracking perfectly. |
-| **🔎 4. Search / Filter System** | Users can search food by name (case-insensitive) and filter by Category or Date range. | [Issue #10](https://github.com/Kise1205/final-project/issues/10)<br>[Issue #11](https://github.com/Kise1205/final-project/issues/11)<br>[Issue #12](https://github.com/Kise1205/final-project/issues/12) | Used MongoDB `$regex` for search and date range query for filtering. |
+| **🔎 4. Search / Filter System** | Users can search food by name. | [Issue #10](https://github.com/Kise1205/final-project/issues/10)<br>[Issue #11](https://github.com/Kise1205/final-project/issues/11)<br>[Issue #12](https://github.com/Kise1205/final-project/issues/12) | Used MongoDB `$regex` for search and date range query for filtering. |
 | **🎨 5. UI / UX Design**         | Responsive Bootstrap 5 interface with modern cards, hover effects, clean layout, and emojis. | [calorie-crud.html](https://github.com/Kise1205/final-project/blob/dev3/public/calorie-crud.html)<br>[style.css](https://github.com/Kise1205/final-project/blob/dev3/public/css/style.css) | Improved UX after first version to make it more professional and user-friendly. |
 | **🐞 6. Debug Case Study**       | Food entries were not showing after login. Root cause: frontend did not send JWT token in Authorization header. Fixed with Axios interceptor + middleware update. | [Issue #3](https://github.com/Kise1205/final-project/issues/3) (Auth Middleware)<br>[calorie-crud.js](https://github.com/Kise1205/final-project/blob/dev3/public/calorie-crud.js#L15-L25) | **Biggest lesson**: Always check the Network tab in browser DevTools when API calls fail. |
 | **📊 7. Monitoring / Logging**   | Added global request logging middleware and global error handler for clean JSON responses. | [Logging middleware](https://github.com/Kise1205/final-project/blob/dev3/app.mjs#L120-L125)<br>[Global error handler](https://github.com/Kise1205/final-project/blob/dev3/app.mjs#L320-L330) | Helps us see what is happening on the server and debug production issues quickly. |
+
+---
+
+## 📊 Value Proposition
+
+- Before: people had to guess calories or write everything on paper.
+- After: they can log a meal in 10 seconds and see the total instantly. Much faster and more useful.
 
 ---
 
@@ -46,7 +53,6 @@ This project includes a role-based admin dashboard, enabling administrators to m
 
 **Why these?**  
 These would make our Calorie Tracker more complete and professional for real users.
-
 
 ---
 ## 🛠 Tech Stack
