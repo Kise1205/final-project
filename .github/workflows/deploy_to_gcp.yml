@@ -1,0 +1,46 @@
+name: Deploy to GCP (dev3 → Production)
+
+on:
+  push:
+    branches:
+      - dev3
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to GCP VM via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SSH_HOST }}           
+          username: ${{ secrets.SSH_USER }}       
+          key: ${{ secrets.SSH_PRIVATE_KEY }}     
+          script: |
+            set -e
+
+            DEPLOY_DIR="/home/quynhnhutran987/final-project"   
+
+            echo "🚀 Deploying Calorie Tracker to $DEPLOY_DIR ..."
+
+            cd "$DEPLOY_DIR" || { echo "❌ Directory not found!"; exit 1; }
+
+            # Pull latest code from dev3
+            git fetch origin
+            git checkout dev3
+            git pull origin dev3
+
+            # Clean & install dependencies
+            rm -rf node_modules package-lock.json
+            npm install --production
+
+            # Restart with PM2
+            pm2 delete "${{ vars.PM2_NAME }}" || true
+            pm2 start -f app.mjs --name "${{ vars.PM2_NAME }}" --time
+            pm2 save
+
+            echo "✅ Deployment successful! App restarted."
+            pm2 status
