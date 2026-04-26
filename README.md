@@ -75,12 +75,12 @@ This project includes a role-based admin dashboard, enabling administrators to m
 
 ### Google Cloud Platform (GCP) Information
 - **Instance Name:** finalproject 
-- **External IP:** `34.186.3.78`
+- **External IP:** `34.125.190.255`
 
 ### SSH Access Configuration
 The VM instance has been configured for remote access using the `student-key` as requested. 
 - **SSH Command:** ```bash
-  ssh -i ~/.ssh/student-key student-key@34.186.3.78
+  ssh -i ~/.ssh/student-key student-key@34.125.190.255
 ---
 
 ## 📚 Product Backlog
